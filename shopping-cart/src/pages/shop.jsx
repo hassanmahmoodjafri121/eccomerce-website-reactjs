@@ -10,7 +10,7 @@ function Shop({ setCartItems }) {
 
   if (!product) {
     return (
-      <div style={{ textAlign: "center", padding: "2rem" }}>
+      <div className="product-detail-empty">
         <p>No product selected. Please go to Home and click "Shop Now".</p>
       </div>
     );
@@ -22,19 +22,25 @@ function Shop({ setCartItems }) {
   };
 
   return (
-    <div className="product-detail">
-      <img src={product.image} alt={product.name} />
-      <h2>{product.name}</h2>
-      <p>
-        <strong>Price: ₹{product.new_price}</strong>{" "}
-        <span style={{ textDecoration: "line-through", color: "gray" }}>
-          ₹{product.old_price}
-        </span>
-      </p>
-      <button className="shop-now-btn" onClick={handleAddToCart}>
-        Add to Cart
-      </button>
-    </div>
+    <section className="product-detail-container">
+      <div className="product-image-wrapper">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="product-detail-image"
+        />
+      </div>
+      <div className="product-info">
+        <h2 className="product-name">{product.name}</h2>
+        <p className="product-price">
+          ₹{product.new_price}{" "}
+          <span className="product-old-price">₹{product.old_price}</span>
+        </p>
+        <button className="shop-now-btn" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
+      </div>
+    </section>
   );
 }
 
