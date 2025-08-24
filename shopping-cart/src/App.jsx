@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
-import Home from "./Pages/Home";
-import Shop from "./Pages/Shop";
+import Home from "./pages/Home";
+import Shop from "./pages/shop";
 import Cart from "./Components/Cart";
-import UserLogin from "./Pages/UserLogin";
+import UserLogin from "./pages/UserLogin";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  // ✅ Add this function to remove item from cart
+  
   const removeFromCart = (id) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
